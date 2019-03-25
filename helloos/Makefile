@@ -1,20 +1,20 @@
 
-# ƒfƒtƒHƒ‹ƒg“®ì
+# é»˜è®¤è§„åˆ™
 
 default :
 	../tolset/z_tools/make.exe img
 
-# ipl.bin 512˜¢š?“Iˆø?î‹æ
+# ipl.bin 512å­—èŠ‚çš„å¯åŠ¨æ‰‡åŒº
 
 ipl.bin : ipl.nas Makefile
 	../tolset/z_tools/nask.exe ipl.nas ipl.bin ipl.lst
 
-#  helloos.img¥1024˜¢š?C?—¢‰Á“ü—¹‘´‘¼“à—e
+#  helloos.img å¤§å°ä¸º1024å­—èŠ‚
 helloos.img : ipl.bin Makefile
 	../tolset/z_tools/edimg.exe   imgin:../tolset/z_tools/fdimg0at.tek \
 		wbinimg src:ipl.bin len:512 from:0 to:0   imgout:helloos.img
 
-# ƒRƒ}ƒ“ƒh
+# å…¶ä»–
 
 asm :
 	../tolset/z_tools/make.exe -r ipl.bin
