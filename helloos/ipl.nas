@@ -60,7 +60,7 @@ retry:
 
 next:
 		MOV		AX,ES
-		ADD		AX,0x200
+		ADD		AX,0x0020
 		MOV		ES,AX
 		ADD		CL,1
 		CMP		CL,18			; 读入18个扇区
@@ -74,7 +74,7 @@ next:
 		CMP		CH,CYLS
 		JB		readloop
 
-		;JMP		0xc200
+		JMP		0xc200
 error:	
 		MOV		SI,msg
 putloop:
