@@ -73,9 +73,8 @@ next:
 		ADD		CH,1			; 柱面加1
 		CMP		CH,CYLS
 		JB		readloop
-fin:	
-		HLT						; 何かあるまでCPUを停止させる
-		JMP		fin	
+
+		;JMP		0xc200
 error:	
 		MOV		SI,msg
 putloop:
@@ -84,10 +83,13 @@ putloop:
 		CMP		AL,0
 		JE		fin
 		MOV		AH,0x0e			; 一文字表示ファンクション
-		MOV		BX,14			; カラーコード
+		MOV		BX,15			; カラーコード
 		INT		0x10			; ビデオBIOS呼び出し
 		JMP		putloop
 			; 無限ループ
+fin:
+		HLT		
+		JMP		fin
 
 msg:
 		DB		0x0a, 0x0a		; 改行を2つ
