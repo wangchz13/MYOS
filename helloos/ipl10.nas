@@ -74,6 +74,7 @@ next:
 		CMP		CH,CYLS
 		JB		readloop
 
+		MOV		[0x0ff0],CH		; 将读入的数量写入内存
 		JMP		0xc200
 error:	
 		MOV		SI,msg
